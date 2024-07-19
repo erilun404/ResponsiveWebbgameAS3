@@ -11,7 +11,7 @@
 <body>
     <section class="introduction">
         <h1>Welcome to the mystery of Elise</h1>
-        <p>You are now starting the journey of saving Elise, you can choose your way with buttons, but beware you can loose your sanity!</p>
+        <p>You are now starting the journey of saving Elise, you can choose your way with buttons and dice rolls, but beware you can loose your sanity!</p>
         <div>
             <input type="text" placeholder="Enter your name" id="input-name">
             <button id="add-name">enter</button>
@@ -29,12 +29,7 @@
                 
             </div>
 
-            <div class="dice">
-                <p class="hit">Hit!</p>
-                <div class="rollDice">
-                    <div class="result"></div>
-                </div>
-            </div>
+          
           
         <div class="the-museum hidden">
             <p>While you are there you start to talk with some different people. You meet:
@@ -87,7 +82,9 @@
             <p>You sneak into the garage with Kalle, you've dressed up as a gardener, so as not to attract any attention. You look around the room for something to use:</p>
             <p class="randomItem hidden"></p>
             <p class="choice"></p>
+            <p class="your-choice"></p>
         </div>
+        <div class="window hidden"><p></p></div>
         <div class="sneakWindow hidden">
             <p class="succsess-window hidden">You hear them talking about some who are at the front door.
                 -Some gynecologist is looking for Elise, they apparently had an appointment.
@@ -121,13 +118,25 @@
         </div>
     </section>
     <div class="btnstart">
-        <button type="button" id="button1">start game</button>
+        <button type="button" id="gameButton">start game</button>
         
     </div>
     <div class="btn-choices hidden">
         <button type="button" id="choice-btn-scissor" value="scissors">Scissors</button>
         <button type="button" id="choice-btn-ladder" value="ladder">Ladder</button>
-        <p class="choice-button">h</p>
+    </div>
+    <div class="btn-house hidden">
+        <button type="button" id="choice-basement" value="basement">Basement</button>
+        <button type="button" id="choice-upstairs" value="upstairs">Up stairs</button>
+    </div>
+    <div class="game-choice-btn hidden">
+        <button type="button" id="gameChoiseBtn"></button>
+    </div>
+    <div class="dice hidden">
+        <p id="hit">Will you make it! Roll higher then 15 for succes</p> 
+        <div class="rollDice enabled">
+            <div class="result"></div>
+        </div>
     </div>
 </body>
 </html>

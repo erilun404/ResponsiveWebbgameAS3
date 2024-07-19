@@ -1,138 +1,205 @@
-let button1 = document.getElementById('button1')
-let choiceButtonScissor = document.getElementById('choice-btn-scissor')
-let choiceButtonLadder = document.getElementById('choice-btn-ladder')
-let inventory = []
-const randomItem = ["nail scissor", "spade", "lader"]
-// button1.setAttribute('onclick', 'infoGame()')
-//let button1;
-
-const infoGame = () => {
-    let gameInfo = document.querySelector('.introduction')
-    gameInfo.classList.remove('hidden');
-    button1.setAttribute('onclick', 'showPrologue()')
-}
-infoGame(); 
-
-const showPrologue = () => {
-    let gameInfo = document.querySelector('.introduction')
-    gameInfo.classList.add('hidden')
-    let prologue = document.querySelector('.prologue');
-    prologue.classList.remove('hidden');
-    button1.innerText = "Go to museum";
-    button1.setAttribute('onclick', 'museum()');
-}
-
-const museum = () => {
-    let prologue = document.querySelector('.prologue');
-    prologue.classList.add('hidden')
-    let theMuseum = document.querySelector('.the-museum')
-    theMuseum.classList.remove('hidden')
-    button1.innerText = "go to hospital" 
-    button1.setAttribute('onclick', 'goHospital()') 
-}
-const goHospital = () => {
-    console.log("goHospital called")
-    let theMuseum = document.querySelector('.the-museum')
-    theMuseum.classList.add('hidden')
-    let worried = document.querySelector('.worried')
-    worried.classList.remove('hidden');
-    button1.innerText = "next";
-    button1.setAttribute('onclick', 'info()')
-}
-
-const info = () => {
-    let worried = document.querySelector('.worried')
-    worried.classList.add('hidden');
-    let insideInfo = document.querySelector('.inside-info')
-    insideInfo.classList.remove('hidden');
-    console.log("info called")
-    button1.innerText = "new text";
-    button1.setAttribute('onclick', 'garage()')
-}
-
-
-const garage = () => {
-    console.log("garage called")
-    let insideInfo = document.querySelector('.inside-info');
-    insideInfo.classList.add('hidden');
-    let insideGarage = document.querySelector('.garage');
-    insideGarage.classList.remove('hidden');
-    button1.classList.add('hidden');
-    let choice = document.querySelector('.btn-choices')
-    choice.classList.remove('hidden')
-}
-//garage();
+//Get references to the buttons and other elements
+const gameButton = document.getElementById('gameButton');
+const choiceButtonScissor = document.getElementById('choice-btn-scissor');
+const choiceButtonLadder = document.getElementById('choice-btn-ladder');
+const choiceBasement = document.getElementById('choice-basement');
+const choiceUpstairs = document.getElementById('choice-upstairs');
+const gameChoiseBtn = document.getElementById('gameChoiseBtn');
+const hitElement = document.getElementById('hit');
 
 let selectedItem;
-const getItem = item => {
-    selectedItem = item;
-    console.log(item)
-    handleChoice();
+
+//function to change text in dice roll
+const changeTextByHit = (newText) => {
+    hitElement.textContent = newText;
 }
-//getItem();
-choiceButtonScissor.addEventListener("click", (e) => getItem("SScissors"))
-choiceButtonLadder.addEventListener("click", (e) => getItem("ladder"))
+
+// Function to show and hide elements
+const showElement = (selector) => {
+    document.querySelector(selector).classList.remove('hidden');
+};
+
+const hideElement = (selector) => {
+    document.querySelector(selector).classList.add('hidden');
+};
+const choiceBtn = (text, clickHandler) => {
+    gameButton.innerText = text;
+    gameButton.onclick = clickHandler;
+};
+
+// Function to update button text and click event
+const updateButton = (text, clickHandler) => {
+    gameButton.innerText = text;
+    gameButton.onclick = clickHandler;
+};
+
+// Game logic functions
+//hideElement('.end') start the game make init function
+const infoGame = () => {
+    showElement('.introduction');
+    updateButton('Show Prologue', showPrologue);
+    //updateButton('testbutton', sneakWindow);
+};
+
+const showPrologue = () => {
+    hideElement('.introduction');
+    showElement('.prologue');
+    updateButton('Go to Museum', museum);
+};
+
+const museum = () => {
+    hideElement('.prologue');
+    showElement('.the-museum');
+    updateButton('Go to Hospital', goHospital);
+};
+
+const goHospital = () => {
+    hideElement('.the-museum');
+    showElement('.worried');
+    updateButton('Next', info);
+};
+
+const info = () => {
+    hideElement('.worried');
+    showElement('.inside-info');
+    updateButton('New Text', garage);
+};
+
+const garage = () => {
+    hideElement('.inside-info');
+    showElement('.garage');
+    gameButton.classList.add('hidden');
+    showElement('.btn-choices');
+};
+
+const getItem = (item) => {
+    selectedItem = item;
+    handleChoice();
+};
 
 const handleChoice = () => {
-    let insideGarage = document.querySelector('.garage');
-    insideGarage.classList.add('hidden');
-    let choice = document.querySelector('.choice-button');
-    console.log(choice)
-    choice.textContent = `you choose ${selectedItem}`;
-    button1.innerText = "go to window";
-    button1.classList.remove('hidden');
-}
-//handleChoice();
+    hideElement('.btn-choices');
+    const choice = document.querySelector('.choice');
+    choice.textContent = `You choose ${selectedItem}`;
+    gameButton.classList.remove('hidden');
+    updateButton('Go to Window', goToWindow);
+};
 
-//sätt en value på button som sparas i selecteditem
-//getrandomItems()
-
+const goToWindow = () => {
+    hideElement('.garage')
+    showElement('.window');
+    const windowElement = document.querySelector('.window');
+    windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
+    updateButton('Go!', sneakWindow);
+};
 
 const sneakWindow = () => {
-
+    //showDice(sneakwindowsucces, sneakwindowFail) 
+    const succes = () => {
+        hideElement('.window')
+        showElement('.sneakWindow'), 
+        showElement('.succsess-window'), 
+        updateButton('Go', toHouse)
+    }
+    const failure = () => {
+        showElement('.sneakWindow'), 
+        showElement('.fail-window'), 
+        hideElement('.window'),
+        hideElement('.choice'),
+        updateButton('You did not make it', end)
+    }
+    showDice(succes, failure)
 }
-//sneakWindow(diceRandom);
 
-const toHouse = () => {}
-toHouse();
-
-const goUpStairs = () => {}
-//goUpStairs(diceRandom)
-
-const basement = () => {}
-//basement(diceRandom);
-
-
-
+const toHouse = () => {
+    console.log('to house')
+    //gameButton.classList.add('hidden');
+    updateButton('GO upstairs')
+    hideElement('.sneakWindow')
+    showElement('.go-to-house')
+    choiceBtn.classList.remove('hidden');  //NOT DONE HERE NOT WORKING HERE FIX FIRST
+    choiceBtn('go down')
+    //showElement('.btn-house')
+}
 
 
+const end = () => {  //Fix this one!
+    console.log('end')
+    hideElement('.sneakWindow')
+    showElement('.failGame')
+    showElement('.tribute')
+    updateButton('Start over', infoGame)
+}
 
-const diceRandom = () => {
-    const rolls = document.querySelectorAll('.rollDice');
-    rolls.forEach(roll => {
-    roll.addEventListener('click', () => {
-        const result = Math.floor(Math.random() * 20) +1;
-        document.querySelector('.result').textContent = result;
-        //skicka in i en ny fuktion (result) i den funktionen gör if för att kolla högre/lägre
+const showDice = (succes, failure) => {
+    showElement('.dice')
+    console.log("Sneak window");
+   
+    document.querySelectorAll('.rollDice').forEach(roll => {
+        roll.addEventListener('click', () => {
+           if(roll.classList.contains('enabled')) {
+                roll.classList.remove('enabled')
+                diceRandom((result) => {
+                console.log(result)
+                    if(result > 5) {
+                        console.log("one");
+                        changeTextByHit('Succsessfull roll!');
+                        //showElement('.fail-window');
 
+                        succes();
+                    }else{
+                        console.log("two");
+                        changeTextByHit('To bad you failed to sneak the window');
+                        //console.log(changeTextByHit, "nooo")
+                        //showElement('.fail-window');
+                        failure();
+                    }
+                })
+
+            }
+        }) 
     })
-})
-}
-//diceRandom();
+};
 
 
-// failGame
-// sanityDown
-// tribute
-// garage
 
-// succsessWindow
-// fail-window
+const diceRandom = (callback) => {
+    const result = Math.floor(Math.random() * 20) +1;
+    document.querySelector('.result').textContent = result;
+    callback(result);
+};
 
-// basement
-// fail-tank
-// fail-jars
+// Event listeners for choice buttons
+choiceButtonScissor.addEventListener('click', () => getItem('scissors'));
+choiceButtonLadder.addEventListener('click', () => getItem('ladder'));
 
-// go-upstairs
-// fail-upstairs
-// succsess-upstairs
+// choiceBasement.addEventListener('click', () => )
+// choiceUpstairs.addEventListener('click', () => )
+// Initialize the game
+infoGame();
+
+// const toHouse = () => {}
+// toHouse();
+
+// const goUpStairs = () => {}
+// //goUpStairs(diceRandom)
+
+// const basement = () => {}
+// //basement(diceRandom);
+
+// // failGame
+// // sanityDown
+// // tribute
+// // garage
+
+// // succsessWindow
+// // fail-window
+
+// // basement
+// // fail-tank
+// // fail-jars
+
+// // go-upstairs
+// // fail-upstairs
+// // succsess-upstairs
+
