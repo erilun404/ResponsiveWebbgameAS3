@@ -2,8 +2,8 @@
 const gameButton = document.getElementById('gameButton');
 const choiceButtonScissor = document.getElementById('choice-btn-scissor');
 const choiceButtonLadder = document.getElementById('choice-btn-ladder');
-const choiceBasement = document.getElementById('choice-basement');
-const choiceUpstairs = document.getElementById('choice-upstairs');
+// const choiceBasement = document.getElementById('choice-basement');
+// const choiceUpstairs = document.getElementById('choice-upstairs');
 const gameChoiseBtn = document.getElementById('gameChoiseBtn');
 const hitElement = document.getElementById('hit');
 
@@ -23,8 +23,9 @@ const hideElement = (selector) => {
     document.querySelector(selector).classList.add('hidden');
 };
 const choiceBtn = (text, clickHandler) => {
-    gameButton.innerText = text;
-    gameButton.onclick = clickHandler;
+    
+    gameChoiseBtn.innerText = text;
+    gameChoiseBtn.onclick = clickHandler;
 };
 
 // Function to update button text and click event
@@ -114,11 +115,11 @@ const sneakWindow = () => {
 const toHouse = () => {
     console.log('to house')
     //gameButton.classList.add('hidden');
-    updateButton('GO upstairs')
+    updateButton('Go upstairs', goUpStairs)
     hideElement('.sneakWindow')
     showElement('.go-to-house')
-    choiceBtn.classList.remove('hidden');  //NOT DONE HERE NOT WORKING HERE FIX FIRST
-    choiceBtn('go down')
+    showElement('.game-choice-btn')
+    choiceBtn('Go down to basement', basement)
     //showElement('.btn-house')
 }
 
@@ -141,21 +142,15 @@ const showDice = (succes, failure) => {
                 roll.classList.remove('enabled')
                 diceRandom((result) => {
                 console.log(result)
-                    if(result > 5) {
-                        console.log("one");
+                    if(result > 1) {
                         changeTextByHit('Succsessfull roll!');
-                        //showElement('.fail-window');
-
                         succes();
                     }else{
                         console.log("two");
-                        changeTextByHit('To bad you failed to sneak the window');
-                        //console.log(changeTextByHit, "nooo")
-                        //showElement('.fail-window');
+                        changeTextByHit('To bad you failed');
                         failure();
                     }
                 })
-
             }
         }) 
     })
@@ -173,18 +168,27 @@ const diceRandom = (callback) => {
 choiceButtonScissor.addEventListener('click', () => getItem('scissors'));
 choiceButtonLadder.addEventListener('click', () => getItem('ladder'));
 
-// choiceBasement.addEventListener('click', () => )
-// choiceUpstairs.addEventListener('click', () => )
+
 // Initialize the game
 infoGame();
 
 // const toHouse = () => {}
 // toHouse();
 
-// const goUpStairs = () => {}
+const goUpStairs = () => {
+    console.log("up")
+    //gameChoiseBtn.classList.add('.hidden')
+    hideElement('.dice')
+    hideElement('.game-choice-btn') //VISA KNAPPAR med ny text och fixa nya val
+    hideElement('.btnstart')
+    hideElement('.go-to-house')
+    showElement('.go-upstairs') 
+}
 // //goUpStairs(diceRandom)
 
-// const basement = () => {}
+const basement = () => {
+    console.log("down")
+}
 // //basement(diceRandom);
 
 // // failGame
