@@ -1,140 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-   <!-- <script src="./jquery-3.7.1.min.js"></script> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- <script src="./jquery-3.7.1.min.js"></script> -->
     <script src="./script.js" defer></script>
     <title>The mystery of Elise</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="introduction">
-        <h1>Welcome to the mystery of Elise</h1>
-        <p>You are now starting the journey of saving Elise, you can choose your way with buttons and dice rolls, but beware you can loose your sanity!</p>
-        <div>
-            <input type="text" placeholder="Enter your name" id="input-name">
-            <button id="add-name">enter</button>
-        </div>
-        <div id="name-container"></div>
+      <h1>Welcome to the mystery of Elise</h1>
+      <p>
+        You are now starting the journey of saving Elise, you can choose your
+        way with buttons and dice rolls, but beware you can loose your sanity!
+      </p>
+      <div>
+        <input type="text" placeholder="Enter your name" id="input-name" />
+        <button id="add-name">enter</button>
+      </div>
+      <div id="name-container"></div>
     </section>
-    
-    <section class="game-play">
-        <div class="prologue hidden">
-            <h3>Prologue</h3>
-            <p>Sweden around 1920th.You and your friends Anna, Kalle and Jonna are invited to the Nordic Museum to listen to what has been found from an excavation of an old grave.
-                You are all interested in archeology but you are also interested in mystical and occult things! And has previously been involved in solving various occult scenarios, with great luck!,
-                While there, you learn that they have found gold and a box with some strange occult symbols of a trident! Amazing! Found here in a grave in Sweden, incredible! 
-                How did it end up here! In a few weeks it will be shown to the public</p>
-                
-            </div>
 
-          
-          
-        <div class="the-museum hidden">
-            <p>While you are there you start to talk with some different people. You meet:
-                Elise 18 years: She is the child of Artur Evans and Ann Bernadsson. Elise health has been deteriorating since the last 10 years.
-                Arthur Evans: the archaeologist who found the box, when he digger out the box in a grave 10 years ago. He is not keen on lending out the box to the museum.
-                Ann Bernadsson: She is worried about her child feeling so bad.
-                Theodor Brant: An major of the military. His the one taking care of the exclusive exhibition.
-            </p>
-            
-            <p>After a while you and your fellow friends hear Arthur screaming at the major:
-                I WANT IT back, it is my property. 
-                This outburst will trigger Elises health and will make her faint. The ambulance will arrive shortly and she will be taken to the hospital.
-            </p>
-        </div>
-        <div class="worried hidden">
-            <p>
-                You are worried about Elise, and especially Kalle who took a liking to her during the short time they spoke to each other. You also learn that Elise's mother is worried, as she is not allowed to talk to her. You decide to help Ann get Elise out.
-                You have done this before! Anna becomes very happy and tells you that Elise is at Långbro hospital.
-            </p>
-            <p>
-                You go and visit her in the hospital. When you arrive at the hospital, you ask to see Elise.
-                While you are waiting for the nurse to let you in, you hear strange screams from inside one of the halls. And you smell a strange smell of seaweed and musty water.
-                After a while you will be told that you are not welcome to visit. You think they are giving a poor excuse for not letting you in.
-            </p>
-        </div>
-            <div class="inside-info hidden">
-                <p>Through a colleague of Anna's, you learn that Elise has changed her doctor to Dr. Mild, his name eludes him, he is not of the kind nature. 
-                    He has unorthodox methods to help people, but since Elise has given her consent that he will cure her. We can't do anything, right?
-                </p>
-                <p>You have found out that Dr. Mild lives in villa Hagtorn in Mälarhöjden. You decide to go there by tram, outside you decide to take different roles to try to get into the house. Anna and Johanna walk towards the house. Kalle and you sneak into the garage.
-                </p>
-            </div>
-            <div class="go-to-house hidden">
-                <p>You and your friends decide to go in after dark, you sneak up to the house and manage to get in. 
-                <p>You find some hats that you put on your head, why? Because they are nice hats, of course!</p>
-                <p>Once inside, you split up to start looking for Elise.</p>
-                <p>Now you have two choises, where will you go next?Choose way to go:</p>
-            </div>
-            <div class="failGame hidden">
-                <p>You failed the mission!</p>
-            </div>
-            <div class="sanityDown hidden">
-                <p>You failed the mission! What you seen made your sanity go down, it took a toll on you. You end up in hospital! Will you ever recover again?</p>
-            </div>
-            <div class="tribute hidden">
-                <p>Thanks for visit the game! I would like to make a tribute to my fellow roleplaying group and the session we played, those are the inspiration of this game!</p>
-            </div>
-        
+    <section class="game-play">
+      <div class="prologue hidden">
+        <h3>Prologue</h3>
+        <p>
+          Sweden around 1920th.You and your friends Anna, Kalle and Jonna are
+          invited to the Nordic Museum to listen to what has been found from an
+          excavation of an old grave. You are all interested in archeology but
+          you are also interested in mystical and occult things! And has
+          previously been involved in solving various occult scenarios, with
+          great luck!, While there, you learn that they have found gold and a
+          box with some strange occult symbols of a trident! Amazing! Found here
+          in a grave in Sweden, incredible! How did it end up here! In a few
+          weeks it will be shown to the public
+        </p>
+      </div>
+
+      <div class="the-museum hidden">
+        <p>
+          While you are there you start to talk with some different people. You
+          meet: Elise 18 years: She is the child of Artur Evans and Ann
+          Bernadsson. Elise health has been deteriorating since the last 10
+          years. Arthur Evans: the archaeologist who found the box, when he
+          digger out the box in a grave 10 years ago. He is not keen on lending
+          out the box to the museum. Ann Bernadsson: She is worried about her
+          child feeling so bad. Theodor Brant: An major of the military. His the
+          one taking care of the exclusive exhibition.
+        </p>
+
+        <p>
+          After a while you and your fellow friends hear Arthur screaming at the
+          major: I WANT IT back, it is my property. This outburst will trigger
+          Elises health and will make her faint. The ambulance will arrive
+          shortly and she will be taken to the hospital.
+        </p>
+      </div>
+      <div class="worried hidden">
+        <p>
+          You are worried about Elise, and especially Kalle who took a liking to
+          her during the short time they spoke to each other. You also learn
+          that Elise's mother is worried, as she is not allowed to talk to her.
+          You decide to help Ann get Elise out. You have done this before! Anna
+          becomes very happy and tells you that Elise is at Långbro hospital.
+        </p>
+        <p>
+          You go and visit her in the hospital. When you arrive at the hospital,
+          you ask to see Elise. While you are waiting for the nurse to let you
+          in, you hear strange screams from inside one of the halls. And you
+          smell a strange smell of seaweed and musty water. After a while you
+          will be told that you are not welcome to visit. You think they are
+          giving a poor excuse for not letting you in.
+        </p>
+      </div>
+      <div class="inside-info hidden">
+        <p>
+          Through a colleague of Anna's, you learn that Elise has changed her
+          doctor to Dr. Mild, his name eludes him, he is not of the kind nature.
+          He has unorthodox methods to help people, but since Elise has given
+          her consent that he will cure her. We can't do anything, right?
+        </p>
+        <p>
+          You have found out that Dr. Mild lives in villa Hagtorn in
+          Mälarhöjden. You decide to go there by tram, outside you decide to
+          take different roles to try to get into the house. Anna and Johanna
+          walk towards the house. Kalle and you sneak into the garage.
+        </p>
+      </div>
+      <div class="go-to-house hidden">
+        <p>
+          You and your friends decide to go in after dark, you sneak up to the
+          house and manage to get in.
+        </p>
+        <p>
+          You find some hats that you put on your head, why? Because they are
+          nice hats, of course!
+        </p>
+        <p>Once inside, you split up to start looking for Elise.</p>
+        <p>
+          Now you have two choises, where will you go next?Choose way to go:
+        </p>
+      </div>
+      <div class="failGame hidden">
+        <p>You failed the mission!</p>
+      </div>
+      <div class="sanityDown hidden">
+        <p>
+          You failed the mission! What you seen made your sanity go down, it
+          took a toll on you. You end up in hospital! Will you ever recover
+          again?
+        </p>
+      </div>
+      <div class="tribute hidden">
+        <p class="tribute-to-game">
+          Thanks for visit the game! I would like to make a tribute to my fellow
+          roleplaying group and the session we played, those are the inspiration
+          of this game!
+        </p>
+      </div>
+      <div class="madeIt hidden">
+        <p>
+          You made it! Elise returns home unharmed to her mother and your
+          mission is complete.
+        </p>
+      </div>
     </section>
     <section class="choiceWay">
-        <div class="garage hidden">
-            <p>You sneak into the garage with Kalle, you've dressed up as a gardener, so as not to attract any attention. You look around the room for something to use:</p>
-            <p class="randomItem hidden"></p>
-            <p class="choice"></p>
-            <p class="your-choice"></p>
+      <div class="garage hidden">
+        <p>
+          You sneak into the garage with Kalle, you've dressed up as a gardener,
+          so as not to attract any attention. You look around the room for
+          something to use:
+        </p>
+        <p class="randomItem hidden"></p>
+        <p class="choice"></p>
+        <p class="your-choice"></p>
+      </div>
+      <div class="window hidden"><p></p></div>
+      <div class="sneakWindow hidden">
+        <div class="succsess-window hidden">
+          You hear them talking about someone at the front door.
+          <p>
+            - Some gynecologist is looking for Elise, they apparently had an
+            appointment.
+          </p>
+          <p>- No, they are not allowed in, absolutely not!</p>
+          <p>- What do I do?</p>
+          <p>
+            -Just drive them away, they won't know anything about her and what
+            we're doing here!
+          </p>
+          <p>
+            You sneak back to the garage and out to the road to meet the others
+          </p>
         </div>
-        <div class="window hidden"><p></p></div>
-        <div class="sneakWindow hidden">
-            <div class="succsess-window hidden">You hear them talking about someone at the front door.
-            <p>- Some gynecologist is looking for Elise, they apparently had an appointment.</p>
-            <p>- No, they are not allowed in, absolutely not!</p>    
-            <p>- What do I do?</p>   
-            <p>-Just drive them away, they won't know anything about her and what we're doing here!</p>    
-            <p>You sneak back to the garage and out to the road to meet the others</p>
-            </div>
-            <p class="fail-window hidden">Anna and Jonna seem to have failed to enter the house. You move back to the garage and out to the road. You meet everyone outside.</p>
+        <p class="fail-window hidden">
+          Anna and Jonna seem to have failed to enter the house. You move back
+          to the garage and out to the road. You meet everyone outside.
+        </p>
+      </div>
+      <div class="goBasement">
+        <p class="basement hidden">
+          You go down to the basement. When you go down, it's dark and you smell
+          seaweed and water. You recognize the smell, it's the same you smelled
+          in the hospital and from the rooms where people were screaming! You
+          slowly go down the stairs… You see something big longing away in the
+          room, it looks like a big tank with water in it, you also see some
+          jars on a shelf
+        </p>
+        <p class="fail-tank hidden">
+          You get closer and hear splashing, and there is some movement there.
+          It's a strange creature that looks like half human, half fish! You've
+          never seen anything so strange before and you feel a cold core running
+          down your spine. You become petrified and can't move, you lie down in
+          the fetal position and cant move.
+        </p>
+        <p class="fail-jars hidden">
+          You walk up to the cans and take a closer look! You see it's human
+          parts in some kind of liquid. A cold chill runs down your spine and
+          you become as if petrified and cannot move. You lie down in the fetal
+          position and cant get out.
+        </p>
+      </div>
+      <div class="upstairs">
+        <p class="go-upstairs hidden">
+          You go upstairs, creep along the corridor. You will see several doors
+          leading to different rooms. You discover that in two of them someone
+          are snoring. Which room do you want to go in, the left one or the
+          right one?
+        </p>
+        <p class="fail-upstairs-left hidden">
+          You go into the wrong room and are discovered by the person who is
+          sleeping there. In a panic, you and your fellow friends run outside
+          and jump into the taxi that is waiting for you outside. Now how will
+          things go for Elise!
+        </p>
+        <p class="elise hidden">
+          You see Elise lying there sleeping. You try to wake her up, but she
+          seems difficult to wake up.
+        </p>
+        <div class="succsess-upstairs-right hidden">
+          <p>
+            Finally she wakes up, she is disoriented and doesn't really know
+            where she is. You all help to get her out without anyone waking up.
+            A taxi is waiting for you outside.
+          </p>
+          <p>
+            Elise mutters about someone who needs rescuing from the basement.
+            But you want out as soon as possible. You get out and Elise is
+            saved!
+          </p>
         </div>
-        <div class="goBasement">
-            <p class="basement hidden">You go down to the basement. When you go down, it's dark and you smell seaweed and water. 
-                You recognize the smell, it's the same you smelled in the hospital and from the rooms where people were screaming! 
-                You slowly go down the stairs…
-                You see something big longing away in the room, it looks like a big tank with water in it, you also see some jars on a shelf</p>
-            <p class="fail-tank hidden">You get closer and hear splashing, and there is some movement there. It's a strange creature that looks like half human, half fish! 
-                You've never seen anything so strange before and you feel a cold core running down your spine. 
-                You become petrified and can't move, you lie down in the fetal position and cant move.</p>
-            <p class="fail-jars hidden">You walk up to the cans and take a closer look! You see it's human parts in some kind of liquid. 
-                A cold chill runs down your spine and you become as if petrified and cannot move. You lie down in the fetal position and cant get out.</p>
+        <div class="fail-upstairs-right hidden">
+          <p>
+            You made to much noices when trying to help Elise, she is to groggy
+            to wake up. You have to leave her to not get caught
+          </p>
         </div>
-        <div class="upstairs">
-            <p class="go-upstairs hidden">You go upstairs, creep along the corridor. You will see several doors leading to different rooms. You discover that in two of them someone are snoring.
-                Which room do you want to go in?</p>
-            <p class="fail-upstairs hidden">You go into the wrong room and are discovered by the person who is sleeping there. 
-                In a panic, you and your fellow friends run outside and jump into the taxi that is waiting for you outside. Now how will things go for Elise!</p>
-            <p class="succsess-upstairs hidden">You see Elise lying there sleeping. You try to wake her up, but she seems difficult to wake up. 
-                Finally she wakes up, she is disoriented and doesn't really know where she is. You all help to get her out without anyone waking up. A taxi is waiting for you outside. 
-                Elise mutters about someone who needs rescuing from the basement. But you want out as soon as possible. 
-                You get out and Elise is saved! You made it! 
-                Elise returns home unharmed to her mother and your mission is complete.</p>
-        </div>
+      </div>
     </section>
     <div class="btnstart">
-        <button type="button" id="gameButton">start game</button>
+      <button type="button" id="gameButton">start game</button>
     </div>
     <div class="btn-choices hidden">
-        <button type="button" id="choice-btn-scissor" value="scissors">Scissors</button>
-        <button type="button" id="choice-btn-ladder" value="ladder">Ladder</button>
+      <button type="button" id="choice-btn-scissor" value="scissors">
+        Scissors
+      </button>
+      <button type="button" id="choice-btn-ladder" value="ladder">
+        Ladder
+      </button>
     </div>
     <div class="game-choice-btn hidden">
-        <button type="button" id="gameChoiseBtn"></button>
+      <button type="button" id="gameChoiseBtn"></button>
     </div>
     <div class="dice hidden">
-        <p id="hit">Will you make it! Roll higher then 15 for succes</p> 
-        <div class="rollDice enabled">
-            <div class="result"></div>
-        </div>
+      <p id="hit">Will you make it! Roll higher then 15 for succes</p>
+      <div class="rollDice enabled">
+        <div class="result"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -39,7 +39,7 @@ const updateButton = (text, clickHandler) => {
 const infoGame = () => {
     showElement('.introduction');
     updateButton('Show Prologue', showPrologue);
-    //updateButton('testbutton', sneakWindow);
+    updateButton('testbutton', toHouse);     //TEST BUTTON
 };
 
 const showPrologue = () => {
@@ -124,13 +124,7 @@ const toHouse = () => {
 }
 
 
-const end = () => {  //Fix this one!
-    console.log('end')
-    hideElement('.sneakWindow')
-    showElement('.failGame')
-    showElement('.tribute')
-    updateButton('Start over', infoGame)
-}
+
 
 const showDice = (succes, failure) => {
     showElement('.dice')
@@ -169,41 +163,86 @@ choiceButtonScissor.addEventListener('click', () => getItem('scissors'));
 choiceButtonLadder.addEventListener('click', () => getItem('ladder'));
 
 
-// Initialize the game
-infoGame();
 
-// const toHouse = () => {}
-// toHouse();
+
 
 const goUpStairs = () => {
     console.log("up")
-    //gameChoiseBtn.classList.add('.hidden')
     hideElement('.dice')
-    hideElement('.game-choice-btn') //VISA KNAPPAR med ny text och fixa nya val
-    hideElement('.btnstart')
+    updateButton('Go left', goLeft)
+    choiceBtn('Go right', goRight)
     hideElement('.go-to-house')
     showElement('.go-upstairs') 
+
+ }
+
+ const goLeft = () => {
+    console.log("left")
+    hideElement('.go-upstairs')
+    hideElement('.game-choice-btn')
+    showElement('.fail-upstairs-left')
+    updateButton('Start over', end)
 }
-// //goUpStairs(diceRandom)
+
+
+const goRight = () => {
+    hideElement('.go-upstairs') 
+    hideElement('.game-choice-btn')
+    hideElement('.btnstart')
+    showElement('.elise')
+    console.log("right")
+    const succes = () => {
+        hideElement('.elise')
+        showElement('.succsess-upstairs-right')
+        showElement('.btnstart')
+        updateButton('Go', tribute)
+    }
+    const failure = () => {   //TEST IF WORK, NOT working fix
+        showElement('.fail-upstairs-right')
+        hideElement('.go-upstairs')
+        showElement('.game-choice-btn')  
+        updateButton('You did not make it', end)
+    }
+    showDice(succes, failure)
+}
+
+const end = () => {  //Fix this one!
+    console.log('end')
+    hideElement('.sneakWindow')
+    hideElement('.fail-upstairs-right')
+    hideElement('.game-choice-btn')
+    hideElement('.fail-upstairs-right')
+    showElement('.failGame')
+    showElement('.tribute-to-game')
+    
+    updateButton('Start over', infoGame)
+}
+
+const tribute = () => { //FIx this one
+    hideElement('.dice')
+    hideElement('.succsess-upstairs-right')
+    showElement('.madeIt')
+}
 
 const basement = () => {
     console.log("down")
 }
-// //basement(diceRandom);
+
+// Initialize the game
+infoGame();
+
+
+
+
 
 // // failGame
 // // sanityDown
-// // tribute
-// // garage
-
-// // succsessWindow
 // // fail-window
-
 // // basement
 // // fail-tank
 // // fail-jars
 
-// // go-upstairs
-// // fail-upstairs
-// // succsess-upstairs
+
+
+
 
