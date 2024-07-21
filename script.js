@@ -22,14 +22,22 @@ const showElement = (selector) => {
 const hideElement = (selector) => {
     document.querySelector(selector).classList.add('hidden');
 };
+
+// const hideAll = () => {
+//     hideElement('.hide-all')
+// }
+const hideAll = () => {
+    document.querySelectorAll('.hide-all').forEach(e => {e.classList.add('hidden')});
+}
 const choiceBtn = (text, clickHandler) => {
-    
+    showElement('.game-choice-btn');
     gameChoiseBtn.innerText = text;
     gameChoiseBtn.onclick = clickHandler;
 };
 
 // Function to update button text and click event
 const updateButton = (text, clickHandler) => {
+    showElement('.btnstart')
     gameButton.innerText = text;
     gameButton.onclick = clickHandler;
 };
@@ -39,7 +47,7 @@ const updateButton = (text, clickHandler) => {
 const infoGame = () => {
     showElement('.introduction');
     updateButton('Show Prologue', showPrologue);
-    updateButton('testbutton', toHouse);     //TEST BUTTON
+    //updateButton('testbutton', toHouse);     //TEST BUTTON
 };
 
 const showPrologue = () => {
@@ -49,25 +57,29 @@ const showPrologue = () => {
 };
 
 const museum = () => {
-    hideElement('.prologue');
+    //hideElement('.prologue'); //.prologue
+    hideAll();
     showElement('.the-museum');
     updateButton('Go to Hospital', goHospital);
 };
 
 const goHospital = () => {
-    hideElement('.the-museum');
+    //hideElement('.the-museum');
+    hideAll();
     showElement('.worried');
     updateButton('Next', info);
 };
 
 const info = () => {
-    hideElement('.worried');
+    //hideElement('.worried');
+    hideAll();
     showElement('.inside-info');
     updateButton('New Text', garage);
 };
 
 const garage = () => {
-    hideElement('.inside-info');
+    //hideElement('.inside-info');
+    hideAll();
     showElement('.garage');
     gameButton.classList.add('hidden');
     showElement('.btn-choices');
@@ -114,29 +126,97 @@ const sneakWindow = () => {
 
 const toHouse = () => {
     console.log('to house')
-    //gameButton.classList.add('hidden');
-    updateButton('Go upstairs', goUpStairs)
-    hideElement('.sneakWindow')
+    hideAll();
     showElement('.go-to-house')
     showElement('.game-choice-btn')
+    updateButton('Go upstairs', goUpStairs)
     choiceBtn('Go down to basement', basement)
     //showElement('.btn-house')
 }
 
 
+const goUpStairs = () => {
+    console.log("up")
+    hideAll();
+    //hideElement('.dice')
+    updateButton('Go left', goLeft)
+    choiceBtn('Go right', goRight)
+    //hideElement('.go-to-house')
+    showElement('.go-upstairs') 
 
+ }
+
+ const goLeft = () => {
+    console.log("left")
+    hideAll();
+    //hideElement('.go-upstairs')
+    //hideElement('.game-choice-btn')
+    showElement('.fail-upstairs-left')
+    updateButton('Start over', end)
+}
+
+const goRight = () => {
+    //hideElement('.go-upstairs') 
+    //hideElement('.game-choice-btn')
+    //hideElement('.btnstart')
+    hideAll();    
+    showElement('.elise')
+    console.log("right")
+    const succes = () => {
+        //hideElement('.elise')
+        hideAll();
+        showElement('.dice')
+        showElement('.succsess-upstairs-right')
+        showElement('.btnstart')
+        updateButton('Go', tribute)
+    }
+    const failure = () => {   //TEST IF WORK, NOT working fix
+        showElement('.fail-upstairs-right')
+        hideElement('.go-upstairs')
+        showElement('.btnstart')  
+        updateButton('Ok', end)
+    }
+    showDice(succes, failure)
+}
+
+const end = () => {  //Fix this one!
+    console.log('end')
+    hideAll();
+    showElement('.failGame')
+    showElement('.tribute-to-game')
+    
+    updateButton('Start over', infoGame)
+}
+
+const tribute = () => { //FIx this one
+    //hideAll();
+    hideElement('.dice')
+    hideElement('.succsess-upstairs-right')
+    showElement('.madeIt')
+    updateButton('start over', infoGame)  //FIX START OVER
+}
+
+const basement = () => {
+    console.log("down")
+}
 
 const showDice = (succes, failure) => {
+    hideElement('.btnstart')
     showElement('.dice')
     console.log("Sneak window");
-   
-    document.querySelectorAll('.rollDice').forEach(roll => {
+   changeTextByHit('Will you make it! Roll higher then 15 for succes')
+   document.querySelector('.result').textContent = "";
+    //document.querySelectorAll('.rollDice').forEach(roll => {
+        roll = document.querySelector('.rollDice')
+        roll.replaceWith(roll.cloneNode(true))
+        roll = document.querySelector('.rollDice')
+        roll.classList.add('enabled')
         roll.addEventListener('click', () => {
            if(roll.classList.contains('enabled')) {
                 roll.classList.remove('enabled')
                 diceRandom((result) => {
                 console.log(result)
-                    if(result > 1) {
+                    if(result < 19) {
                         changeTextByHit('Succsessfull roll!');
                         succes();
                     }else{
@@ -147,10 +227,8 @@ const showDice = (succes, failure) => {
                 })
             }
         }) 
-    })
+    //})
 };
-
-
 
 const diceRandom = (callback) => {
     const result = Math.floor(Math.random() * 20) +1;
@@ -162,71 +240,6 @@ const diceRandom = (callback) => {
 choiceButtonScissor.addEventListener('click', () => getItem('scissors'));
 choiceButtonLadder.addEventListener('click', () => getItem('ladder'));
 
-
-
-
-
-const goUpStairs = () => {
-    console.log("up")
-    hideElement('.dice')
-    updateButton('Go left', goLeft)
-    choiceBtn('Go right', goRight)
-    hideElement('.go-to-house')
-    showElement('.go-upstairs') 
-
- }
-
- const goLeft = () => {
-    console.log("left")
-    hideElement('.go-upstairs')
-    hideElement('.game-choice-btn')
-    showElement('.fail-upstairs-left')
-    updateButton('Start over', end)
-}
-
-
-const goRight = () => {
-    hideElement('.go-upstairs') 
-    hideElement('.game-choice-btn')
-    hideElement('.btnstart')
-    showElement('.elise')
-    console.log("right")
-    const succes = () => {
-        hideElement('.elise')
-        showElement('.succsess-upstairs-right')
-        showElement('.btnstart')
-        updateButton('Go', tribute)
-    }
-    const failure = () => {   //TEST IF WORK, NOT working fix
-        showElement('.fail-upstairs-right')
-        hideElement('.go-upstairs')
-        showElement('.game-choice-btn')  
-        updateButton('You did not make it', end)
-    }
-    showDice(succes, failure)
-}
-
-const end = () => {  //Fix this one!
-    console.log('end')
-    hideElement('.sneakWindow')
-    hideElement('.fail-upstairs-right')
-    hideElement('.game-choice-btn')
-    hideElement('.fail-upstairs-right')
-    showElement('.failGame')
-    showElement('.tribute-to-game')
-    
-    updateButton('Start over', infoGame)
-}
-
-const tribute = () => { //FIx this one
-    hideElement('.dice')
-    hideElement('.succsess-upstairs-right')
-    showElement('.madeIt')
-}
-
-const basement = () => {
-    console.log("down")
-}
 
 // Initialize the game
 infoGame();
