@@ -43,7 +43,6 @@ const updateButton = (text, clickHandler) => {
 };
 
 // Game logic functions
-//hideElement('.end') start the game make init function
 const infoGame = () => {
     hideAll();
     showElement('.introduction');
@@ -58,28 +57,24 @@ const showPrologue = () => {
 };
 
 const museum = () => {
-    //hideElement('.prologue'); //.prologue
     hideAll();
     showElement('.the-museum');
     updateButton('Go to Hospital', goHospital);
 };
 
 const goHospital = () => {
-    //hideElement('.the-museum');
     hideAll();
     showElement('.worried');
     updateButton('Next', info);
 };
 
 const info = () => {
-    //hideElement('.worried');
     hideAll();
     showElement('.inside-info');
     updateButton('New Text', garage);
 };
 
 const garage = () => {
-    //hideElement('.inside-info');
     hideAll();
     showElement('.garage');
     gameButton.classList.add('hidden');
@@ -108,7 +103,6 @@ const goToWindow = () => {
 };
 
 const sneakWindow = () => {
-    //showDice(sneakwindowsucces, sneakwindowFail) 
     const succes = () => {
         hideElement('.window')
         showElement('.sneakWindow'), 
@@ -126,45 +120,32 @@ const sneakWindow = () => {
 }
 
 const toHouse = () => {
-    console.log('to house')
     hideAll();
     showElement('.go-to-house')
     showElement('.game-choice-btn')
     updateButton('Go upstairs', goUpStairs)
     choiceBtn('Go down to basement', goBasement)
-    //showElement('.btn-house')
 }
 
 
 const goUpStairs = () => {
-    console.log("up")
     hideAll();
-    //hideElement('.dice')
     updateButton('Go left', goLeft)
     choiceBtn('Go right', goRight)
-    //hideElement('.go-to-house')
     showElement('.go-upstairs') 
 
  }
 
  const goLeft = () => {
-    console.log("left")
     hideAll();
-    //hideElement('.go-upstairs')
-    //hideElement('.game-choice-btn')
     showElement('.fail-upstairs-left')
     updateButton('Start over', end)
 }
 
 const goRight = () => {
-    //hideElement('.go-upstairs') 
-    //hideElement('.game-choice-btn')
-    //hideElement('.btnstart')
     hideAll();    
     showElement('.elise')
-    console.log("right")
     const succes = () => {
-        //hideElement('.elise')
         hideAll();
         showElement('.dice')
         showElement('.succsess-upstairs-right')
@@ -181,7 +162,6 @@ const goRight = () => {
 }
 
 const goBasement = () => {
-    console.log("basement")
     hideAll();
     showElement('.basement')
     showElement('.game-choice-btn')
@@ -190,21 +170,18 @@ const goBasement = () => {
 }
 
 const jars = () => {
-    console.log("jars")
     hideAll();
     showElement('.jars')
     updateButton('Ok!', sanityDown)
 }
 
 const tank = () => {
-    console.log("tank")
     hideAll();
     showElement('.tank')
     updateButton('Ok!', sanityDown)
 }
 
 const end = () => {
-    console.log('end')
     hideAll();
     showElement('.failGame')
     showElement('.tribute')
@@ -218,8 +195,6 @@ const sanityDown = () => {
 
 const tribute = () => { //FIx this one
     hideAll();
-    //hideElement('.dice')
-    //hideElement('.succsess-upstairs-right')
     showElement('.madeIt')
     showElement('.tribute')
     updateButton('start over', infoGame)
@@ -230,10 +205,8 @@ const tribute = () => { //FIx this one
 const showDice = (succes, failure) => {
     hideElement('.btnstart')
     showElement('.dice')
-    console.log("Sneak window");
    changeTextByHit('Will you make it! Roll higher then 15 for succes')
    document.querySelector('.result').textContent = "";
-    //document.querySelectorAll('.rollDice').forEach(roll => {
         roll = document.querySelector('.rollDice')
         roll.replaceWith(roll.cloneNode(true))
         roll = document.querySelector('.rollDice')
@@ -270,18 +243,3 @@ choiceButtonLadder.addEventListener('click', () => getItem('ladder'));
 
 // Initialize the game
 infoGame();
-
-
-
-
-
-
-
-// // basement
-// // fail-tank
-// // fail-jars
-
-
-
-
-
