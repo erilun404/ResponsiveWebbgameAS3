@@ -131,7 +131,7 @@ const toHouse = () => {
     showElement('.go-to-house')
     showElement('.game-choice-btn')
     updateButton('Go upstairs', goUpStairs)
-    choiceBtn('Go down to basement', basement)
+    choiceBtn('Go down to basement', goBasement)
     //showElement('.btn-house')
 }
 
@@ -180,11 +180,30 @@ const goRight = () => {
     showDice(succes, failure)
 }
 
-const basement = () => {
+const goBasement = () => {
     console.log("basement")
+    hideAll();
+    showElement('.basement')
+    showElement('.game-choice-btn')
+    choiceBtn('Tank', tank)
+    updateButton('Jars', jars)
 }
 
-const end = () => {  //Fix this one!
+const jars = () => {
+    console.log("jars")
+    hideAll();
+    showElement('.jars')
+    updateButton('Ok!', sanityDown)
+}
+
+const tank = () => {
+    console.log("tank")
+    hideAll();
+    showElement('.tank')
+    updateButton('Ok!', sanityDown)
+}
+
+const end = () => {
     console.log('end')
     hideAll();
     showElement('.failGame')
