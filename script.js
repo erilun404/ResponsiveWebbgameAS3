@@ -94,7 +94,7 @@ const handleChoice = () => {
     updateButton('Go to Window', goToWindow);
 };
 
-const goToWindow = () => {
+const goToWindow = () => {  //Image??
     hideElement('.garage')
     showElement('.window');
     const windowElement = document.querySelector('.window');
