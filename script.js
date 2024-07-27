@@ -23,12 +23,12 @@ const hideElement = (selector) => {
     document.querySelector(selector).classList.add('hidden');
 };
 
-// const hideAll = () => {
-//     hideElement('.hide-all')
-// }
+
+//function to take care of hiding all elements of the class hidden-when hideAll is called, sellects all element with class hide-all, Iterates over each of these elements, adds the class hidden, to each elements.
 const hideAll = () => {
     document.querySelectorAll('.hide-all').forEach(e => {e.classList.add('hidden')});
 }
+
 const choiceBtn = (text, clickHandler) => {
     showElement('.game-choice-btn');
     gameChoiseBtn.innerText = text;
@@ -45,6 +45,7 @@ const updateButton = (text, clickHandler) => {
 // Game logic functions
 //hideElement('.end') start the game make init function
 const infoGame = () => {
+    hideAll();
     showElement('.introduction');
     updateButton('Show Prologue', showPrologue);
     //updateButton('testbutton', toHouse);     //TEST BUTTON
@@ -170,7 +171,7 @@ const goRight = () => {
         showElement('.btnstart')
         updateButton('Go', tribute)
     }
-    const failure = () => {   //TEST IF WORK, NOT working fix
+    const failure = () => { 
         showElement('.fail-upstairs-right')
         hideElement('.go-upstairs')
         showElement('.btnstart')  
@@ -179,26 +180,33 @@ const goRight = () => {
     showDice(succes, failure)
 }
 
+const basement = () => {
+    console.log("basement")
+}
+
 const end = () => {  //Fix this one!
     console.log('end')
     hideAll();
     showElement('.failGame')
-    showElement('.tribute-to-game')
-    
+    showElement('.tribute')
+    updateButton('Start over', infoGame)
+}
+const sanityDown = () => {
+    hideAll();
+    showElement('.sanityDown')
     updateButton('Start over', infoGame)
 }
 
 const tribute = () => { //FIx this one
-    //hideAll();
-    hideElement('.dice')
-    hideElement('.succsess-upstairs-right')
+    hideAll();
+    //hideElement('.dice')
+    //hideElement('.succsess-upstairs-right')
     showElement('.madeIt')
-    updateButton('start over', infoGame)  //FIX START OVER
+    showElement('.tribute')
+    updateButton('start over', infoGame)
 }
 
-const basement = () => {
-    console.log("down")
-}
+
 
 const showDice = (succes, failure) => {
     hideElement('.btnstart')
@@ -248,9 +256,8 @@ infoGame();
 
 
 
-// // failGame
-// // sanityDown
-// // fail-window
+
+
 // // basement
 // // fail-tank
 // // fail-jars
