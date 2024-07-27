@@ -51,7 +51,9 @@ const infoGame = () => {
 };
 
 const showPrologue = () => {
-    hideElement('.introduction');
+    //hideElement('.introduction');
+    hideAll();
+    showElement('.game-play')
     showElement('.prologue');
     updateButton('Go to Museum', museum);
 };
@@ -94,11 +96,12 @@ const handleChoice = () => {
     updateButton('Go to Window', goToWindow);
 };
 
-const goToWindow = () => {  //Image??
+const goToWindow = () => {  //Image?? FIX FROM HERE
     hideElement('.garage')
     showElement('.window');
     const windowElement = document.querySelector('.window');
     windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
+   
     updateButton('Go!', sneakWindow);
 };
 

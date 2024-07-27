@@ -9,7 +9,7 @@
     <title>The mystery of Elise</title>
   </head>
   <body>
-    <section class="introduction">
+    <section class="introduction hidden hide-all">
       <h1>Welcome to the mystery of Elise</h1>
       <p>
         You are now starting the journey of saving Elise, you can choose your
@@ -22,7 +22,7 @@
       <div id="name-container"></div>
     </section>
 
-    <section class="game-play">
+    <section class="game-play hidden">
       <div class="prologue hidden hide-all">
         <div>
           <img src="images/Stockholm 1920.jpg" alt="Stockholm 1920th" />
@@ -133,8 +133,8 @@
           of this game!
         </p>
       </div>
-    </section>
-    <section class="choiceWay">
+
+      <!--<section class="choiceWay"> -->
       <div class="garage hidden hide-all">
         <div><img src="images/garage.png" alt="" /></div>
         <p>
@@ -147,7 +147,8 @@
         <p class="your-choice"></p>
       </div>
       <div class="window hidden hide-all">
-        <p></p>
+        <
+        <p id="windowText"></p>
       </div>
       <div class="sneakWindow hidden hide-all">
         <div class="succsess-window hidden hide-all">
@@ -221,7 +222,9 @@
           </p>
         </div>
         <div class="fail-upstairs-left hidden hide-all">
-          <div><img src="images/screaming_man.png" alt="screaming man" /></div>
+          <div>
+            <img src="images/screaming_man.png" alt="screaming man" />
+          </div>
           <p>
             You go into the wrong room and are discovered by the person who is
             sleeping there. In a panic, you and your fellow friends run outside
@@ -257,26 +260,29 @@
           </p>
         </div>
       </div>
+      <!--</section>-->
     </section>
-    <div class="btnstart">
-      <button type="button" id="gameButton">start game</button>
-    </div>
-    <div class="btn-choices hidden">
-      <button type="button" id="choice-btn-scissor" value="scissors">
-        Scissors
-      </button>
-      <button type="button" id="choice-btn-ladder" value="ladder">
-        Ladder
-      </button>
-    </div>
-    <div class="game-choice-btn hidden hide-all">
-      <button type="button" id="gameChoiseBtn"></button>
-    </div>
-    <div class="dice hidden hide-all">
-      <p id="hit"></p>
-      <div class="rollDice enabled">
-        <div class="result"></div>
+    <section class="buttonsHolder">
+      <div class="btnstart">
+        <button type="button" id="gameButton">start game</button>
       </div>
-    </div>
+      <div class="btn-choices hidden">
+        <button type="button" id="choice-btn-scissor" value="scissors">
+          Scissors
+        </button>
+        <button type="button" id="choice-btn-ladder" value="ladder">
+          Ladder
+        </button>
+      </div>
+      <div class="game-choice-btn hidden hide-all">
+        <button type="button" id="gameChoiseBtn"></button>
+      </div>
+      <div class="dice hidden hide-all">
+        <p id="hit"></p>
+        <div class="rollDice enabled">
+          <div class="result"></div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
