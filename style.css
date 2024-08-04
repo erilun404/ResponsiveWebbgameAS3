@@ -7,8 +7,6 @@
     height: 100vh;
  }
 
-
-
 body {
     font-family: "Special Elite", system-ui;
     font-weight: 500;
@@ -121,13 +119,6 @@ button {
 .hidebtn {
     display: none;
 }
-
-/* 
-.dice {
-    display: flex;
-    justify-content: center;
-} */
-
 
 .rollDice {
     display: flex;
