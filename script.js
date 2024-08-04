@@ -7,6 +7,7 @@ const choiceButtonLadder = document.getElementById('choice-btn-ladder');
 const gameChoiseBtn = document.getElementById('gameChoiseBtn');
 const hitElement = document.getElementById('hit');
 
+
 let selectedItem;
 
 //function to change text in dice roll
@@ -96,16 +97,19 @@ const handleChoice = () => {
     updateButton('Go to Window', goToWindow);
 };
 
-const goToWindow = () => {  //Image?? FIX FROM HERE
+const goToWindow = () => { 
     hideElement('.garage')
     showElement('.window');
-    const windowElement = document.querySelector('.window');
-    windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
    
+    // const windowElement = document.querySelector('.window');
+    // windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
+   
+    const windowElement = document.getElementById('windowText');
+    windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
     updateButton('Go!', sneakWindow);
 };
 
-const sneakWindow = () => {
+const sneakWindow = () => { //FIX TEXT HERE FROM WINDOW
     const succes = () => {
         hideElement('.window')
         showElement('.sneakWindow'), 
