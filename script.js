@@ -2,15 +2,12 @@
 const gameButton = document.getElementById('gameButton');
 const choiceButtonScissor = document.getElementById('choice-btn-scissor');
 const choiceButtonLadder = document.getElementById('choice-btn-ladder');
-// const choiceBasement = document.getElementById('choice-basement');
-// const choiceUpstairs = document.getElementById('choice-upstairs');
 const gameChoiseBtn = document.getElementById('gameChoiseBtn');
 const hitElement = document.getElementById('hit');
 
-
 let selectedItem;
 
-//function to change text in dice roll
+//function to change text
 const changeTextByHit = (newText) => {
     hitElement.textContent = newText;
 }
@@ -46,15 +43,12 @@ const updateButton = (text, clickHandler) => {
 // Game logic functions
 const infoGame = () => {
     hideAll();
-    
     showElement('.introduction');
     updateButton('Show Prologue', showPrologue);
-    
     //updateButton('testbutton', toHouse);     //TEST BUTTON
 };
 
 const showPrologue = () => {
-    //hideElement('.introduction');
     hideAll();
     showElement('.game-play')
     showElement('.prologue');
@@ -89,7 +83,6 @@ const garage = () => {
 const getItem = (item) => {
     selectedItem = item;
     handleChoice();
-    
 };
 
 const handleChoice = () => {
@@ -97,7 +90,6 @@ const handleChoice = () => {
     showElement('.choice');
     const choice = document.querySelector('.choice');
     choice.textContent = `You choose ${selectedItem}`;
-    
     gameButton.classList.remove('hidden');
     updateButton('Go to Window', goToWindow);
 };
@@ -105,19 +97,13 @@ const handleChoice = () => {
 const goToWindow = () => { 
     hideElement('.garage')
     showElement('.window');
-   
-    // const windowElement = document.querySelector('.window');
-    // windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
-   
     const windowElement = document.getElementById('windowText');
     windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
-    
     updateButton('Sneak!', sneakWindow);
 };
 
 const sneakWindow = () => { //FIX TEXT HERE FROM WINDOW
     const succes = () => {
-        // hideElement('.window')
         hideAll();
         showElement('.dice')
         showElement('.sneakWindow'), 
@@ -127,12 +113,8 @@ const sneakWindow = () => { //FIX TEXT HERE FROM WINDOW
     const failure = () => {
         hideAll();
         showElement('.dice')
-        // showElement('.sneakWindow'), 
-        // showElement('.fail-window'), 
         showElement('.sneakWindow'), 
         showElement('.fail-window'), 
-        // hideElement('.window'),
-        // hideElement('.choice'),
         updateButton('Go', end)
     }
     showDice(succes, failure)
@@ -152,10 +134,9 @@ const goUpStairs = () => {
     updateButton('Go left', goLeft)
     choiceBtn('Go right', goRight)
     showElement('.go-upstairs') 
+}
 
- }
-
- const goLeft = () => {
+const goLeft = () => {
     hideAll();
     showElement('.fail-upstairs-left')
     updateButton('Start over', end)
@@ -175,8 +156,6 @@ const goRight = () => {
         hideAll();
         showElement('.dice')
         showElement('.fail-upstairs-right')
-        // hideElement('.go-upstairs')
-        // hideElement('.elise')
         showElement('.btnstart')  
         updateButton('Ok', end)
     }
@@ -221,8 +200,6 @@ const tribute = () => { //FIx this one
     showElement('.tribute')
     updateButton('Start over', infoGame)
 }
-
-
 
 const showDice = (succes, failure) => {
     hideElement('.btnstart')
