@@ -33,7 +33,7 @@ body {
     width: 65%;
 }*/
 
-input {
+/* input {
     flex: 5;
     border-radius: 10px;
     font-size: 1.2rem;
@@ -44,7 +44,7 @@ input {
     border-radius: 10px;
     font-size: 1.2rem;
     padding: 5px;
-}
+} */
 
 h1 {
     text-align: center;
@@ -53,12 +53,15 @@ h1 {
     padding: 20px;
     margin: 5px;
 }
+span {
+    font-weight: bolder;
+}
 
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 60%;
     border: #b3ad94;
     border-radius: 7px;
 }
@@ -81,6 +84,7 @@ img {
 
 h3 {
     text-align: center;
+    font-size: bolder;
 }
 .choice {
     text-align: center;
@@ -92,6 +96,10 @@ h3 {
     align-self: center;
 }
 
+.failGame {
+    text-align: center;
+}
+
 button {
     background-color: #b3ad94;
     border-radius: 10px;
@@ -99,6 +107,8 @@ button {
     width: 150px;
     padding: 8px;
     margin: 12px;
+    font-family: "Special Elite", system-ui;
+    font-size: large;
 }
 
 .btnstart {

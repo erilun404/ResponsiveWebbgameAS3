@@ -46,8 +46,10 @@ const updateButton = (text, clickHandler) => {
 // Game logic functions
 const infoGame = () => {
     hideAll();
+    
     showElement('.introduction');
     updateButton('Show Prologue', showPrologue);
+    
     //updateButton('testbutton', toHouse);     //TEST BUTTON
 };
 
@@ -74,7 +76,7 @@ const goHospital = () => {
 const info = () => {
     hideAll();
     showElement('.inside-info');
-    updateButton('New Text', garage);
+    updateButton('Garage', garage);
 };
 
 const garage = () => {
@@ -87,12 +89,15 @@ const garage = () => {
 const getItem = (item) => {
     selectedItem = item;
     handleChoice();
+    
 };
 
 const handleChoice = () => {
     hideElement('.btn-choices');
+    showElement('.choice');
     const choice = document.querySelector('.choice');
     choice.textContent = `You choose ${selectedItem}`;
+    
     gameButton.classList.remove('hidden');
     updateButton('Go to Window', goToWindow);
 };
@@ -106,22 +111,29 @@ const goToWindow = () => {
    
     const windowElement = document.getElementById('windowText');
     windowElement.textContent = `You go outside with your ${selectedItem} and start to work. You see a window, and start to sneak up to it.`;
-    updateButton('Go!', sneakWindow);
+    
+    updateButton('Sneak!', sneakWindow);
 };
 
 const sneakWindow = () => { //FIX TEXT HERE FROM WINDOW
     const succes = () => {
-        hideElement('.window')
+        // hideElement('.window')
+        hideAll();
+        showElement('.dice')
         showElement('.sneakWindow'), 
-        showElement('.succsess-window'), 
+        showElement('.succsess-window'),
         updateButton('Go', toHouse)
     }
     const failure = () => {
+        hideAll();
+        showElement('.dice')
+        // showElement('.sneakWindow'), 
+        // showElement('.fail-window'), 
         showElement('.sneakWindow'), 
         showElement('.fail-window'), 
-        hideElement('.window'),
-        hideElement('.choice'),
-        updateButton('You did not make it', end)
+        // hideElement('.window'),
+        // hideElement('.choice'),
+        updateButton('Go', end)
     }
     showDice(succes, failure)
 }
@@ -131,7 +143,7 @@ const toHouse = () => {
     showElement('.go-to-house')
     showElement('.game-choice-btn')
     updateButton('Go upstairs', goUpStairs)
-    choiceBtn('Go down to basement', goBasement)
+    choiceBtn('Go to basement', goBasement)
 }
 
 
@@ -160,8 +172,11 @@ const goRight = () => {
         updateButton('Go', tribute)
     }
     const failure = () => { 
+        hideAll();
+        showElement('.dice')
         showElement('.fail-upstairs-right')
-        hideElement('.go-upstairs')
+        // hideElement('.go-upstairs')
+        // hideElement('.elise')
         showElement('.btnstart')  
         updateButton('Ok', end)
     }
@@ -204,7 +219,7 @@ const tribute = () => { //FIx this one
     hideAll();
     showElement('.madeIt')
     showElement('.tribute')
-    updateButton('start over', infoGame)
+    updateButton('Start over', infoGame)
 }
 
 
@@ -212,7 +227,7 @@ const tribute = () => { //FIx this one
 const showDice = (succes, failure) => {
     hideElement('.btnstart')
     showElement('.dice')
-   changeTextByHit('Will you make it! Roll higher then 15 for succes')
+   changeTextByHit('Will you make it! Roll higher then 14 for succes')
    document.querySelector('.result').textContent = "";
         roll = document.querySelector('.rollDice')
         roll.replaceWith(roll.cloneNode(true))
@@ -223,7 +238,7 @@ const showDice = (succes, failure) => {
                 roll.classList.remove('enabled')
                 diceRandom((result) => {
                 console.log(result)
-                    if(result < 19) {
+                    if(result > 14) {
                         changeTextByHit('Succsessfull roll!');
                         succes();
                     }else{
