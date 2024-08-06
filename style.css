@@ -50,6 +50,7 @@ h1 {
 .introduction {
     padding: 20px;
     margin: 5px;
+    max-width: 800px;
 }
 span {
     font-weight: bolder;
@@ -67,15 +68,12 @@ img {
 .game-play {
     display: flex;
     flex-direction: column;
-   
-    border-radius: 30px;
     padding: 30px;
     margin: 20px; 
-    
-   margin: 0 auto;
-   max-width: 800px; 
-   
+    margin: 0 auto;
+    max-width: 800px; 
 }
+
 #windowText {
     align-self: flex-end;
 }

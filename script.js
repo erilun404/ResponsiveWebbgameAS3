@@ -204,7 +204,7 @@ const tribute = () => { //FIx this one
 const showDice = (succes, failure) => {
     hideElement('.btnstart')
     showElement('.dice')
-   changeTextByHit('Will you make it! Roll higher then 14 for succes')
+   changeTextByHit('Will you make it! Roll higher then 10 for succes')
    document.querySelector('.result').textContent = "";
         roll = document.querySelector('.rollDice')
         roll.replaceWith(roll.cloneNode(true))
@@ -214,12 +214,10 @@ const showDice = (succes, failure) => {
            if(roll.classList.contains('enabled')) {
                 roll.classList.remove('enabled')
                 diceRandom((result) => {
-                console.log(result)
-                    if(result > 14) {
+                    if(result > 10) {
                         changeTextByHit('Succsessfull roll!');
                         succes();
                     }else{
-                        console.log("two");
                         changeTextByHit('To bad you failed');
                         failure();
                     }
